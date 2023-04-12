@@ -33,7 +33,7 @@ def floyd_warshall(graph, V):
 
 
 def generate_sparse_graph(V):
-    E = V * (V - 1) // 10  # Adjust density as desired
+    E = V + V/10  # Adjust density as desired
     graph = []
     while len(graph) < E:
         u = random.randint(0, V - 1)
@@ -45,7 +45,7 @@ def generate_sparse_graph(V):
 
 
 def generate_dense_graph(V):
-    E = V * (V - 1) // 2  # Complete graph
+    E = V * (V - 1) // 2.5  # Close to Complete graph
     graph = []
     while len(graph) < E:
         u = random.randint(0, V - 1)
