@@ -32,31 +32,39 @@ def floyd_warshall(graph, V):
 
 
 def generate_sparse_graph(V):
-    E = V  # Adjust density as desired
     graph = []
-    while len(graph) < E:
-        u = random.randint(0, V - 1)
-        v = random.randint(0, V - 1)
-        w = random.randint(1, 100)
-        if u != v and (u, v, w) not in graph:
+
+    # Create a cyclic graph with directed edges
+    for u in range(V):
+        v = (u + 1) % V  # Connect each vertex to the next vertex in a circular manner
+        w = random.randint(1, 100)  # Assign random weight to the edge
+        graph.append((u, v, w))
+
+    # Add additional edges to increase sparsity
+    num_additional_edges = int(0.1 * V)  # 10% of V as additional edges
+    for _ in range(num_additional_edges):
+        u = random.randint(0, V - 1)  # Randomly choose a source vertex
+        v = random.randint(0, V - 1)  # Randomly choose a target vertex
+        if u != v and (u, v) not in graph:  # Avoid self-loops and duplicate edges
+            w = random.randint(1, 100)  # Assign random weight to the edge
             graph.append((u, v, w))
+
     return graph
 
 
 def generate_dense_graph(V):
-    E =  V * (V - 1) // 2  # Close to Complete graph
+    #  E = V * (V - 1)   complete graph
     graph = []
-    while len(graph) < E:
-        u = random.randint(0, V - 1)
-        v = random.randint(0, V - 1)
-        w = random.randint(1, 100)
-        if u != v and (u, v, w) not in graph:
-            graph.append((u, v, w))
+    for u in range(V):
+        for v in range(V):
+            if u != v:  # Avoid self-loops
+                w = random.randint(1, 100)  # Assign random weight to the edge
+                graph.append((u, v, w))
     return graph
 
 
 V_range = [100, 200, 500, 1000, 1500, 2000]  # Modify V_range to include larger values
-num_iterations = 5  # Increase the number of iterations for each V value
+num_iterations = 2  # Increase the number of iterations for each V value
 
 bf_times_sparse = []
 fw_times_sparse = []
