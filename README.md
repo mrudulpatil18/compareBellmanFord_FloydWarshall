@@ -25,7 +25,7 @@ This function generates a dense graph with V vertices, which is a complete graph
 
 ## Runtime Measurement
 
-The code measures the runtime of both algorithms on sparse and dense graphs with varying number of vertices (100, 200, and 400). It uses the time module to measure the runtime of each algorithm and stores the measured times in separate lists (bf_times_sparse, fw_times_sparse, bf_times_dense, and fw_times_dense) for further analysis.
+The code measures the runtime of both algorithms on sparse and dense graphs with varying number of vertices [100, 200, 500, 1000, 1500, 2000]. It uses the time module to measure the runtime of each algorithm and stores the measured times in separate lists (bf_times_sparse, fw_times_sparse, bf_times_dense, and fw_times_dense) for further analysis.
 
 ## Results Visualization
 
