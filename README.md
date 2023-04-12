@@ -19,7 +19,7 @@ It is an all pair shortest path algorithm that works with both positive and nega
 The code provides two functions for generating graphs:
 
 ### generate_sparse_graph(V): 
-This function generates a sparse graph with V vertices, where the density of edges can be adjusted by changing the value of the variable E (currently set to V * (V - 1) // 10).
+This function generates a sparse graph with V vertices, where the density of edges can be adjusted by changing the value of the variable E .
 ### generate_dense_graph(V): 
 This function generates a dense graph with V vertices, which is a complete graph with all possible edges between vertices.
 
